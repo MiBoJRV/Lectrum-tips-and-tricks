@@ -1,11 +1,17 @@
-import { Hero, Nav, TipList } from '../components';
+import {
+    Hero, Nav, Settings, TipList,
+} from '../components';
+
 
 export const AllTopicsPage = () => {
     return (
-        <section className = { 'layout' }>
-            <Hero />
-            <Nav />
-            <TipList />
-        </section>
+        <>
+            <Settings />
+            <section className = { 'layout' }>
+                <Hero />
+                <Nav />
+                <TipList />
+            </section>
+        </>
     );
 };

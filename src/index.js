@@ -7,7 +7,15 @@ import { App } from './App';
 // Instruments
 import './theme/main.scss';
 
+// Context provider
+import { SelectedTagProvider, SettingsProvider } from './lib';
+
 render(
-    <App />,
+    <SettingsProvider>
+        <SelectedTagProvider>
+            <App />
+        </SelectedTagProvider>
+    </SettingsProvider>,
     document.getElementById('root'),
+
 );
