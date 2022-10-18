@@ -18,4 +18,11 @@ export const api = Object.freeze({
 
         return data.data;
     },
+    async getTipById(id) {
+        const  { data: tipById } = await axios.get(`${ROOT_URL}/tips/${id}`);
+
+        await waait(2000);
+
+        return tipById;
+    },
 });

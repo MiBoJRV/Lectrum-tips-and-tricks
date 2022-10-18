@@ -1,9 +1,10 @@
 // Helpers
+import { Link } from 'react-router-dom';
 import { getTagIcon } from '../../helpers';
 
 export const Tip = (props) => {
     const {
-        title, created, author, preview, tag,
+        title, created, author, preview, tag, id,
     } = props;
 
     const TagIcon = getTagIcon(tag.name);
@@ -26,7 +27,7 @@ export const Tip = (props) => {
                 <p> { preview } </p>
             </main>
             <footer>
-                <a href = '#'>📖 &nbsp;Читать полностью &rarr;</a>
+                <Link to = { id }>📖 &nbsp;Читать полностью &rarr;</Link>
             </footer>
         </article>
     );

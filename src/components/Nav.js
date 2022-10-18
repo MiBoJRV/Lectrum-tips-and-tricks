@@ -1,5 +1,6 @@
 // Core
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // Instruments
 
@@ -10,29 +11,32 @@ import { icons } from '../theme/icons/nav';
 
 
 export const Nav = () => {
-    const [, setSettingOpen] = useContext(Context);
+    const [isSettingOpen, setSettingOpen] = useContext(Context);
 
     const handleClick = (event) => {
         event.preventDefault();
+
         setSettingOpen(true);
     };
 
     return (
         <nav className = 'nav'>
             <h1>T и Т</h1>
-            <a href = '#'>
+            <NavLink to = '/all-topics'>
                 <icons.Home />
                 Все темы
-            </a>
-            <a href = '#'>
+            </NavLink>
+            <NavLink to = '/topic-by-tag'>
                 <icons.Tag />
             По тэгам
-            </a>
-            <a href = '#'>
+            </NavLink>
+            <NavLink to = '/publish'>
                 <icons.Publish />
             Опубликовать
-            </a>
-            <a href = '#' onClick = { handleClick }>
+            </NavLink>
+            <a
+                className = { isSettingOpen ? 'active' : '' }
+                onClick = { handleClick }>
                 <icons.Settings />
             Настройки
             </a>

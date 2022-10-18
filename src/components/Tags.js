@@ -8,12 +8,12 @@ import { useTags } from '../hooks';
 import { getTagIcon, fetchify } from '../helpers';
 import { Context } from '../lib/selectedTagContext';
 
-export const Tags = () => {
+export const Tags = ({ tipViewMode }) => {
     const { data, isFetched } = useTags();
 
     const [selectedTagId, setSelectedTagId] = useContext(Context);
 
-    const tagsJSX = data.map(({ id, name }) => {
+    const tagsJSX = Array.isArray(data) && data.map(({ id, name }) => {
         const TagIcon = getTagIcon(name);
 
         const handleClick = () => {
@@ -22,7 +22,7 @@ export const Tags = () => {
 
         return (
             <span
-                data-active = { selectedTagId === id }
+                data-active = { selectedTagId === id || tipViewMode === 'all-topics' }
                 key = { id }
                 className = { 'tag' }
                 onClick = { handleClick }>

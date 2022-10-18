@@ -3,13 +3,13 @@ import {
 } from '../components';
 
 
-export const AllTopicsPage = () => {
+export const TopicByTagPage = () => {
     return (
         <>
             <section className = { 'layout' }>
                 <Nav />
-                <Hero tipViewMode = 'all-topics' />
-                <TipList tipViewMode = 'all-topics' />
+                <Hero tipViewMode = 'topic-by-tag' />
+                <TipList tipViewMode = 'topic-by-tag' />
             </section>
         </>
     );
